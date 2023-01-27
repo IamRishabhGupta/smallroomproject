@@ -1,10 +1,15 @@
-package com.example.roomdemo
-
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.roomdemo.EmployeeApp
+import com.example.roomdemo.EmployeeDao
+import com.example.roomdemo.EmployeeEntity
 import com.example.roomdemo.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 
@@ -15,6 +20,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        val employeeDao = (application as EmployeeApp).db.employeeDao()
+        binding?.btnAdd?.setOnClickListener {
+            addRecord(employeeDao)
+        }
 
 
     }
@@ -38,5 +48,6 @@ class MainActivity : AppCompatActivity() {
             ).show()
         }
     }
+
 
 }
