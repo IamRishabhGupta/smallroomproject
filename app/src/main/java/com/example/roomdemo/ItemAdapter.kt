@@ -55,7 +55,7 @@ class ItemAdapter(private val items: ArrayList<EmployeeEntity>,
 
 
     class ViewHolder(binding: ItemsRowBinding) : RecyclerView.ViewHolder(binding.root) {
-        // Holds the TextView that will add each item to
+
         val llMain = binding.llMain
         val tvName = binding.tvName
         val tvEmail = binding.tvEmail
